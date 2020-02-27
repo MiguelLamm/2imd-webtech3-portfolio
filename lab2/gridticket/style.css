@@ -8,6 +8,8 @@ body{
 }
 .title{
     font-weight: bolder;
+    font-size: 32px;
+    letter-spacing: 0.2em;
 }
 
 .wrapper > div{
@@ -21,7 +23,7 @@ body{
 .wrapper{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr 150px 150px;
     height: 574px;
     width: 300px;
 }
