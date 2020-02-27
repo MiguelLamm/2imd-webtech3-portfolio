@@ -14,7 +14,7 @@ body{
 }
 
 .info{
-    display: none;
+    display: none !important;
 }
 
 .wrapper{
@@ -23,6 +23,8 @@ body{
     grid-template-rows: 50px 44px 1fr 38px 38px;
     height: 574px;
     width: 300px;
+    background-image: url(img/backgroundimg.jpg);
+    background-position: center -50px;
 }
 
 .title{
@@ -87,7 +89,7 @@ body{
         height: 300px;
         width: 900px;
         background-color: none;
-        background-image: url(img/backgroundimg.jpg);
+        
     }
 
     .title{
@@ -131,7 +133,7 @@ body{
         grid-column: 3/4;
     }
     .info{
-        display: block;
+        display: block !important;
         grid-row: 4/5;
         grid-column: 1/4;
         border: 1px solid black;
