@@ -80,19 +80,21 @@ body{
 @media(min-width: 900px){
 
     .wrapper{
+        padding: 7px;
         display: grid;
         grid-template-columns: 200px 202px 200px 275px;
         grid-template-rows: 80px 100px 59px 40px;
         height: 300px;
         width: 900px;
         background-color: none;
+        background-image: url(img/backgroundimg.jpg);
     }
 
     .title{
         color: black;
         grid-row: 2/3;
         grid-column: 1/4;
-        background-color: white;
+        background-color: none;
         font-size: 72px;
         justify-content: center;
         border-left: 1px solid black;
