@@ -14,6 +14,9 @@ body{
 
 .wrapper > div{
     background-color: #87cefa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .info{
@@ -23,7 +26,7 @@ body{
 .wrapper{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 1fr 1fr 150px 150px;
+    grid-template-rows: 60px 34px 1fr 38px 38px;
     height: 574px;
     width: 300px;
 }
