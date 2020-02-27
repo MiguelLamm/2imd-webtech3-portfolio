@@ -5,15 +5,48 @@
 body{
     margin: 0;
     padding: 0;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .grid > div{
     background-color: #f3c2c2;
 }
 .inf{
-    background-color: #fffcc9;
+    background-color: #fffcc9 !important;
+}
+
+.broken{
+    background-color: #87cefa !important;
 }
 
 .grid{
     display: grid;
+    grid-gap: 0.5em;
+}
+@media (min-width: 550px){
+    .grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1em;
+        justify-items: stretch;
+    }
+
+}
+@media (min-width: 650px){
+    .grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 1em;
+        justify-items: stretch;
+    }
+    .broken{
+        grid-column: 3/4;
+        grid-row: 1/4;
+    }
+    .inf{
+        grid-column: 4/6;
+        grid-row: 2/4;
+    }
 }
