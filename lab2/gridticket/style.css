@@ -110,7 +110,6 @@ body{
         color: black;
         grid-row: 1/2;
         grid-column: 1/4;
-        
         align-items: center;
         border-left: 1px solid black;
         border-top: 1px solid black;
