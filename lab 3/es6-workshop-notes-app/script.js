@@ -28,6 +28,12 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
+
+
+    let notes= [];
+    notes = this.title;
+    localStorage.setItem("notes", JSON.stringify(notes));
+    console.log(localStorage);
   }
   
   remove(){
@@ -61,7 +67,7 @@ class App {
     let text = document.querySelector("#txtAddNote").value;
     let note = new Note(text);
     note.add();
-    // note.saveToStorage();
+    note.saveToStorage();
     // this.reset();
   }
   
