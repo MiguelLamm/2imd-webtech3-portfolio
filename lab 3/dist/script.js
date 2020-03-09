@@ -65,7 +65,12 @@ class App {
     let notesStored = JSON.parse(localStorage.getItem("notes"));
 
     if (notesStored != null){
-      console.log(notesStored);
+      //console.log(notesStored);
+
+      notesStored.forEach(loadNote => {
+        let loadNew = new Note(loadNote);
+        loadNew.add(loadNew.element);
+      });
     
     }
 
@@ -87,3 +92,4 @@ class App {
 }
 
 let app = new App();
+localStorage.clear();
