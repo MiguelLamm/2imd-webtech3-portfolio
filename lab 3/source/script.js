@@ -21,6 +21,7 @@ class Note {
     a.innerHTML = "Remove";
     newNote.appendChild(a);
     a.addEventListener('click', this.remove.bind(newNote));
+    a.addEventListener('click', this.removeFromStorage.bind(newNote));
     return newNote;
   }
 
@@ -54,6 +55,9 @@ class Note {
   console.log (localStorage);
   }
 
+  removeFromStorage(){
+    
+  }
 }
 
 class App {
