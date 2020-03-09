@@ -64,10 +64,9 @@ class App {
 
     let notesStored = JSON.parse(localStorage.getItem("notes"));
 
-    for (let i = 0; i<notesStored.length; i++){
-      let NotesFromStorage = new Note(loadednotes)
-      NotesFromStorage.add(NotesFromStorage.element);
-      console.log(NotesFromStorage);
+    if (notesStored != null){
+      console.log(notesStored);
+    
     }
 
     
