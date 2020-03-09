@@ -13,8 +13,14 @@ class Note {
 
     newP.innerHTML = title;
     newNote.appendChild(newP); //p in de div zetten
-    // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
+    // HINT🤩 
 
+    let a = document.createElement('a'); //<a>
+    a.setAttribute("href", "#"); //link zonder destinatie
+    a.setAttribute("class", "remove");
+    a.innerHTML = "Remove";
+    newNote.appendChild(a);
+    a.addEventListener('click', this.remove.bind(newNote));
     return newNote;
   }
 
@@ -42,7 +48,7 @@ class Note {
 
   remove() {// HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
-
+  
   }
 
 }
