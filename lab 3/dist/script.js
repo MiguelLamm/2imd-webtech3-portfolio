@@ -64,7 +64,7 @@ class App {
 
     let notesStored = JSON.parse(localStorage.getItem("notes"));
 
-    if (notesStored != null){
+    if (notesStored.length > 0){
       //console.log(notesStored);
 
       notesStored.forEach(loadNote => {
@@ -73,9 +73,12 @@ class App {
       });
     
     }
-
+    else{
+    console.log("er ging iets mis met loaden")
+    }
     
   }
+  
 
   createNote(e) {
     // this function should create a new note by using the Note() class
@@ -92,4 +95,3 @@ class App {
 }
 
 let app = new App();
-localStorage.clear();
