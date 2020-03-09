@@ -49,8 +49,9 @@ class Note {
   remove() {// HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
   this.style.display = "none";
-  let removed = this.querySelector("a");
+  let removed = this.querySelector("a").previousSibling.innerHTML;
   console.log(removed);
+  console.log (localStorage);
   }
 
 }
