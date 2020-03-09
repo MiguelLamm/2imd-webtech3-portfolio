@@ -34,7 +34,7 @@ class Note {
      a = JSON.parse(localStorage.getItem("notes").length);
     }
 
-    notes[a] = this.title;
+    notes[a]= this.title;
     localStorage.setItem("notes", JSON.stringify(notes));
     console.log(localStorage);
     
@@ -95,3 +95,4 @@ class App {
 }
 
 let app = new App();
+//localStorage.clear();
