@@ -29,20 +29,19 @@ class Note {
     // if you want to store arrays, look at JSON.parse and JSON.stringify
     let notes = [];
     let a = 0;
-    if(localStorage.length > 0) {
+
+    if (localStorage.length > 0) {
       notes = JSON.parse(localStorage.getItem("notes"));
-     a = JSON.parse(localStorage.getItem("notes").length);
+      a = JSON.parse(localStorage.getItem("notes").length);
     }
 
-    notes[a]= this.title;
+    notes[a] = this.title;
     localStorage.setItem("notes", JSON.stringify(notes));
     console.log(localStorage);
-    
   }
 
   remove() {// HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
-
   }
 
 }
@@ -58,27 +57,24 @@ class App {
     this.loadNotesFromStorage();
   }
 
-  loadNotesFromStorage() {// HINT🤩
+  loadNotesFromStorage() {
+    // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
+    let notesStored = JSON.parse(localStorage.getItem("notes")); //array filteren op Null
 
-    let notesStored = JSON.parse(localStorage.getItem("notes"));
+    let notesFiltered = notesStored.filter(array => array != null);
 
-    if (notesStored.length > 0){
-      //console.log(notesStored);
-
-      notesStored.forEach(loadNote => {
+    if (notesFiltered != null) {
+      console.log(notesFiltered);
+      notesFiltered.forEach(loadNote => {
         let loadNew = new Note(loadNote);
         loadNew.add(loadNew.element);
       });
-    
+    } else {
+      console.log("er ging iets mis met loaden");
     }
-    else{
-    console.log("er ging iets mis met loaden")
-    }
-    
   }
-  
 
   createNote(e) {
     // this function should create a new note by using the Note() class
@@ -94,5 +90,4 @@ class App {
 
 }
 
-let app = new App();
-//localStorage.clear();
+let app = new App(); //localStorage.clear();

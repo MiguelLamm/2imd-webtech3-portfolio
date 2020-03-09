@@ -65,9 +65,7 @@ class App {
     let notesStored = JSON.parse(localStorage.getItem("notes"));
 
     //array filteren op Null
-    let notesFiltered = notesStored.filter(array => array != null/*function (f){
-      return f != null;
-    }*/);
+    let notesFiltered = notesStored.filter(array => array != null);
 
     if (notesFiltered != null){
       console.log(notesFiltered);
