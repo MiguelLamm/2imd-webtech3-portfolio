@@ -89,10 +89,12 @@ class App {
     let text = document.querySelector("#txtAddNote").value;
     let note = new Note(text);
     note.add();
-    note.saveToStorage(); // this.reset();
+    note.saveToStorage();
+    this.reset();
   }
 
   reset() {// this function should reset the form 
+    document.getElementById('txtAddNote').value="";
   }
 
 }
