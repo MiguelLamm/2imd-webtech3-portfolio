@@ -13,8 +13,17 @@ class Note {
 
     newP.innerHTML = title;
     newNote.appendChild(newP); //p in de div zetten
-    // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
+    // HINT🤩 
 
+    let a = document.createElement('a'); //<a>
+
+    a.setAttribute("href", "#"); //link zonder destinatie
+
+    a.setAttribute("class", "remove");
+    a.innerHTML = "Remove";
+    newNote.appendChild(a);
+    a.addEventListener('click', this.remove.bind(newNote));
+    a.addEventListener('click', this.removeFromStorage.bind(newNote));
     return newNote;
   }
 
@@ -40,8 +49,28 @@ class Note {
     console.log(localStorage);
   }
 
-  remove() {// HINT🤩 the meaning of 'this' was set by bind() in the createElement function
+  remove() {
+    // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+    this.style.display = "none";
+    let removed = this.querySelector("a").previousSibling.innerHTML;
+    console.log(removed);
+    console.log(localStorage);
+  }
+
+  removeFromStorage() {
+    this.style.display = "none";
+    let removed = this.querySelector("a").previousSibling.innerHTML;
+    let storedNotes = JSON.parse(localStorage.getItem("notes"));
+
+    for (let i = storedNotes.length - 1; i >= 0; i--) {
+      if (storedNotes[i] == removed) {
+        storedNotes.splice(i, 1);
+      }
+    }
+
+    console.log(storedNotes);
+    localStorage.setItem("notes", JSON.stringify(storedNotes));
   }
 
 }
@@ -54,6 +83,11 @@ class App {
 
     this.btnAdd = document.querySelector("#btnAddNote");
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
+    document.querySelector('#txtAddNote').addEventListener("keydown", q => {
+      if (q.keyCode == 13) {
+        this.createNote();
+      }
+    });
     this.loadNotesFromStorage();
   }
 
@@ -82,10 +116,13 @@ class App {
     let text = document.querySelector("#txtAddNote").value;
     let note = new Note(text);
     note.add();
-    note.saveToStorage(); // this.reset();
+    note.saveToStorage();
+    this.reset();
   }
 
-  reset() {// this function should reset the form 
+  reset() {
+    // this function should reset the form 
+    document.getElementById('txtAddNote').value = "";
   }
 
 }
