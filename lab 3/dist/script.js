@@ -28,13 +28,21 @@ class Note {
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
     let notes = [];
-    notes = this.title;
+    let a = 0;
+    if(localStorage.length > 0) {
+      notes = JSON.parse(localStorage.getItem("notes"));
+     a = JSON.parse(localStorage.getItem("notes").length);
+    }
+
+    notes[a] = this.title;
     localStorage.setItem("notes", JSON.stringify(notes));
     console.log(localStorage);
+    
   }
 
   remove() {// HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+
   }
 
 }
@@ -68,7 +76,7 @@ class App {
     let text = document.querySelector("#txtAddNote").value;
     let note = new Note(text);
     note.add();
-    note.saveToStorage(); // this.reset();
+    //note.saveToStorage(); // this.reset();
   }
 
   reset() {// this function should reset the form 
