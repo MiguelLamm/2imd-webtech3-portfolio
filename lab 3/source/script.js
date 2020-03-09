@@ -56,7 +56,10 @@ class Note {
   }
 
   removeFromStorage(){
-    
+    let storedNotes = JSON.parse(localStorage.getItem("notes"));
+    let chosenNote = storedNotes.indexOf(this);
+    storedNotes.splice(index, 1);
+    console.log(storedNotes);
   }
 }
 
