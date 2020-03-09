@@ -62,12 +62,15 @@ class App {
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
 
-    /*let a = 0;
-    let notes = [];
-    if (localStorage.length >= 1){
-      notes = localStorage.getItem("notes", JSON.parse(localStorage));
+    let notesStored = JSON.parse(localStorage.getItem("notes"));
+
+    for (let i = 0; i<notesStored.length; i++){
+      let NotesFromStorage = new Note(loadednotes)
+      NotesFromStorage.add(NotesFromStorage.element);
+      console.log(NotesFromStorage);
     }
-    console.log(this.notes)*/
+
+    
   }
 
   createNote(e) {
@@ -76,7 +79,7 @@ class App {
     let text = document.querySelector("#txtAddNote").value;
     let note = new Note(text);
     note.add();
-    //note.saveToStorage(); // this.reset();
+    note.saveToStorage(); // this.reset();
   }
 
   reset() {// this function should reset the form 
