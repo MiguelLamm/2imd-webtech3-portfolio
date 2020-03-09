@@ -56,10 +56,20 @@ class Note {
   }
 
   removeFromStorage(){
+    this.style.display = "none";
+  let removed = this.querySelector("a").previousSibling.innerHTML;
     let storedNotes = JSON.parse(localStorage.getItem("notes"));
-    let chosenNote = storedNotes.indexOf(this);
-    storedNotes.splice(index, 1);
+    
+    for(let i = storedNotes.length-1; i>=0; i--){
+      if (storedNotes[i] == removed){
+        storedNotes.splice(i,1);
+      }
+    }
+
     console.log(storedNotes);
+    
+
+    localStorage.setItem("notes",JSON.stringify(storedNotes));
   }
 }
 
