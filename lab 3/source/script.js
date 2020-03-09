@@ -81,6 +81,13 @@ class App {
 
     this.btnAdd = document.querySelector("#btnAddNote");
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
+
+    document.querySelector('#txtAddNote').addEventListener("keydown", q => {
+      if(q.keyCode == 13){
+        this.createNote();
+      }
+    })
+
     this.loadNotesFromStorage();
   }
 
