@@ -64,10 +64,15 @@ class App {
 
     let notesStored = JSON.parse(localStorage.getItem("notes"));
 
-    if (notesStored.length > 0){
-      //console.log(notesStored);
+    //array filteren op Null
+    let notesFiltered = notesStored.filter(function (f){
+      return f != null;
+    });
 
-      notesStored.forEach(loadNote => {
+    if (notesFiltered != null){
+      console.log(notesFiltered);
+
+      notesFiltered.forEach( loadNote => {
         let loadNew = new Note(loadNote);
         loadNew.add(loadNew.element);
       });
