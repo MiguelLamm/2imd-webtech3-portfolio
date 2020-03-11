@@ -34,25 +34,31 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
-    let notes = [];
-    let a = 0;
-    if(localStorage.length >= 1) {
-      notes = JSON.parse(localStorage.getItem("notes"));
-     a = JSON.parse(localStorage.getItem("notes").length);
-    }
 
-    notes[a]= this.title;
+    let notes =[];
+    let a = 1;
+
+    if (localStorage.length >= 1) {
+      notes = JSON.parse(localStorage.getItem("notes"));
+      a = JSON.parse(localStorage.getItem("notes").length);
+      
+    } else{
+      console.log("saven naar storage mislukt");
+    }
+    notes[a] = this.title;
     localStorage.setItem("notes", JSON.stringify(notes));
     console.log(localStorage);
-    
   }
 
   remove() {// HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
   this.style.display = "none";
   let removed = this.querySelector("a").previousSibling.innerHTML;
+<<<<<<< HEAD
   console.log(removed);
   console.log ("in de storage: "+ localStorage);
+=======
+>>>>>>> lab3
   }
 
   removeFromStorage(){
@@ -70,7 +76,11 @@ class Note {
       }
     }
 
+<<<<<<< HEAD
     console.log("Lyrics: "+ storedNotes);
+=======
+  
+>>>>>>> lab3
 
     localStorage.setItem("notes",JSON.stringify(storedNotes));
   }
@@ -104,7 +114,7 @@ class App {
     let notesFiltered = notesStored.filter(array => array != null);
 
     if (notesFiltered != null){
-      console.log(notesFiltered);
+      
 
       notesFiltered.forEach( loadNote => {
         let loadNew = new Note(loadNote);
