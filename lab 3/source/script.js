@@ -35,18 +35,19 @@ class Note {
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
 
-    let noteToStorage =[];
-    let saved = JSON.parse(localStorage.getItem("notes"));
-    
+    let notes =[];
+    let a = 0;
 
-    if (localStorage.getItem("notes")===null){
-      noteToStorage.push(this.title);
-      localStorage.setItem("notes", JSON.stringify(noteToStorage));
+    if (localStorage.length >= 1) {
+      notes = JSON.parse(localStorage.getItem("notes"));
+      a = JSON.parse(localStorage.getItem("notes").length);
+      
     } else{
-      saved.push(this.title);
-      localStorage.setItem("notes", JSON.stringify(saved));
+      console.log("ayayyay");
     }
-
+    notes[a] = this.title;
+    localStorage.setItem("notes", JSON.stringify(notes));
+    console.log(localStorage);
 
     /*let a = 0;
     let notes = [];
@@ -68,8 +69,6 @@ class Note {
     // in this function, 'this' will refer to the current note element
   this.style.display = "none";
   let removed = this.querySelector("a").previousSibling.innerHTML;
-  console.log(removed);
-  console.log (localStorage);
   }
 
   removeFromStorage(){
@@ -87,7 +86,7 @@ class Note {
       }
     }
 
-    console.log(storedNotes);
+  
 
     localStorage.setItem("notes",JSON.stringify(storedNotes));
   }
@@ -121,7 +120,7 @@ class App {
     let notesFiltered = notesStored.filter(array => array != null);
 
     if (notesFiltered != null){
-      console.log(notesFiltered);
+      
 
       notesFiltered.forEach( loadNote => {
         let loadNew = new Note(loadNote);
@@ -153,4 +152,4 @@ class App {
 }
 
 let app = new App();
-localStorage.clear();
+//localStorage.clear();
