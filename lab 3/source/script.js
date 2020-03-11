@@ -52,7 +52,7 @@ class Note {
   this.style.display = "none";
   let removed = this.querySelector("a").previousSibling.innerHTML;
   console.log(removed);
-  console.log (localStorage);
+  console.log ("in de storage: "+ localStorage);
   }
 
   removeFromStorage(){
@@ -64,13 +64,13 @@ class Note {
     storedNotes = storedNotes.filter(array => array != null);
     //Nulls filteren
 
-    for(let i = storedNotes.length-1; i>=0; i--){ //hekken post
+    for(let i = storedNotes.length-1; i>=0; i--){ //0-1 array
       if (storedNotes[i] === removed){
         storedNotes.splice(i,1);
       }
     }
 
-    console.log(storedNotes);
+    console.log("Lyrics: "+ storedNotes);
 
     localStorage.setItem("notes",JSON.stringify(storedNotes));
   }
