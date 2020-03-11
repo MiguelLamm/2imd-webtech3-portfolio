@@ -48,21 +48,6 @@ class Note {
     notes[a] = this.title;
     localStorage.setItem("notes", JSON.stringify(notes));
     console.log(localStorage);
-
-    /*let a = 0;
-    let notes = [];
-  
-    if(localStorage.length >= 1) {
-
-      notes = JSON.parse(localStorage.getItem("notes"));
-     a = JSON.parse(localStorage.getItem("notes").length);
-
-    }
-
-    notes[a]= this.title;
-    localStorage.setItem("notes", JSON.stringify(notes));
-    console.log(localStorage);
-    */
   }
 
   remove() {// HINT🤩 the meaning of 'this' was set by bind() in the createElement function
