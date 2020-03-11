@@ -36,14 +36,14 @@ class Note {
     // if you want to store arrays, look at JSON.parse and JSON.stringify
 
     let notes =[];
-    let a = 0;
+    let a = 1;
 
     if (localStorage.length >= 1) {
       notes = JSON.parse(localStorage.getItem("notes"));
       a = JSON.parse(localStorage.getItem("notes").length);
       
     } else{
-      console.log("ayayyay");
+      console.log("saven naar storage mislukt");
     }
     notes[a] = this.title;
     localStorage.setItem("notes", JSON.stringify(notes));
