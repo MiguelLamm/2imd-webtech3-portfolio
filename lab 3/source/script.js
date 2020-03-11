@@ -65,7 +65,7 @@ class Note {
     //Nulls filteren
 
     for(let i = storedNotes.length-1; i>=0; i--){ //hekken post
-      if (storedNotes[i] == removed){
+      if (storedNotes[i] === removed){
         storedNotes.splice(i,1);
       }
     }
