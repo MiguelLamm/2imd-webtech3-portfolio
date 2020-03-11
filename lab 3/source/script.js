@@ -36,7 +36,7 @@ class Note {
     // if you want to store arrays, look at JSON.parse and JSON.stringify
     let notes = [];
     let a = 0;
-    if(localStorage.length > 0) {
+    if(localStorage.length >= 1) {
       notes = JSON.parse(localStorage.getItem("notes"));
      a = JSON.parse(localStorage.getItem("notes").length);
     }
@@ -57,17 +57,20 @@ class Note {
 
   removeFromStorage(){
     this.style.display = "none";
-  let removed = this.querySelector("a").previousSibling.innerHTML;
+    let removed = this.querySelector("a").previousSibling.innerHTML;
+
     let storedNotes = JSON.parse(localStorage.getItem("notes"));
-    
-    for(let i = storedNotes.length-1; i>=0; i--){
+
+    storedNotes = storedNotes.filter(array => array != null);
+    //Nulls filteren
+
+    for(let i = storedNotes.length-1; i>=0; i--){ //hekken post
       if (storedNotes[i] == removed){
         storedNotes.splice(i,1);
       }
     }
 
     console.log(storedNotes);
-    
 
     localStorage.setItem("notes",JSON.stringify(storedNotes));
   }
