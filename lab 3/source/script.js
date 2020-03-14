@@ -54,11 +54,6 @@ class Note {
     // in this function, 'this' will refer to the current note element
   this.style.display = "none";
   let removed = this.querySelector("a").previousSibling.innerHTML;
-<<<<<<< HEAD
-  console.log(removed);
-  console.log ("in de storage: "+ localStorage);
-=======
->>>>>>> lab3
   }
 
   removeFromStorage(){
@@ -76,11 +71,7 @@ class Note {
       }
     }
 
-<<<<<<< HEAD
-    console.log("Lyrics: "+ storedNotes);
-=======
   
->>>>>>> lab3
 
     localStorage.setItem("notes",JSON.stringify(storedNotes));
   }
