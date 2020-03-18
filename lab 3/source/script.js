@@ -34,6 +34,12 @@ class Note {
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
+
+    let notities = localStorage.length;
+    console.log('het aantal '+notities);
+    if (notities == null){
+      console.log('Nullus in the functius');
+    }
 /*
     let notes =[];
     let a = 1;
@@ -58,6 +64,9 @@ class Note {
   }
 
   removeFromStorage(){
+    console.log("functius Deletus");
+
+    /*
     this.style.display = "none";
     let removed = this.querySelector("a").previousSibling.innerHTML;
 
@@ -75,6 +84,7 @@ class Note {
   
 
     localStorage.setItem("notes",JSON.stringify(storedNotes));
+    */
   }
 }
 
