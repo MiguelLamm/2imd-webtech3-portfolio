@@ -118,9 +118,7 @@ class App {
     let notesStored = JSON.parse(localStorage.getItem("notes"));
 
     //array filteren op Null
-    let notesFiltered = notesStored.filter(array => array != null);
-
-    if (notesFiltered != null){
+    
       
 
       notesFiltered.forEach( loadNote => {
@@ -129,9 +127,7 @@ class App {
       });
     
     }
-    else{
-    console.log("er ging iets mis met loaden")
-    }
+    
     
   }
   
