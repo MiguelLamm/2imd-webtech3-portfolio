@@ -53,26 +53,8 @@ class Note {
   }
 
   removeFromStorage(){
-<<<<<<< HEAD
-    this.style.display = "none";
-    let removed = this.querySelector("a").previousSibling.innerHTML;
-
-    let storedNotes = JSON.parse(localStorage.getItem("notes"));
-
-    storedNotes = storedNotes.filter(array => array != null);
-    //Nulls filteren
-
-    for(let i = storedNotes.length-1; i>=0; i--){ //0-1 array
-      if (storedNotes[i] === removed){
-        storedNotes.splice(i,1);
-      }
-    }
-
-  
-=======
     //console.log("functius Deletus");
     
->>>>>>> lab3
 
     let notes = JSON.parse(localStorage.getItem("notes"));
     let child = this.children[0].innerHTML;
