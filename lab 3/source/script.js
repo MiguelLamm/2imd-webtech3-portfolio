@@ -97,8 +97,6 @@ class App {
       let noteStorage = new Note(notesStored[a]);
       noteStorage.add();
     }    
-  
-  
     
   }
   
