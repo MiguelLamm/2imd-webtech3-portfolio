@@ -76,12 +76,12 @@ class Note {
 
     let notes = JSON.parse(localStorage.getItem("notes"));
     let child = this.children[0].innerHTML;
-    console.log(child);
+    //console.log(child);
     let index = notes.indexOf(child);
-    console.log('dit is index '+index);
+    //console.log('dit is index '+index);
     notes.splice(index,1);
     localStorage.setItem("notes", JSON.stringify(notes));
-    console.log(localStorage);
+    //console.log(localStorage);
     /*
     this.style.display = "none";
     let removed = this.querySelector("a").previousSibling.innerHTML;
