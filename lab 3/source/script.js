@@ -35,18 +35,14 @@ class Note {
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
 
-    let notes =[];
-    let a = 1;
+    let notes = JSON.parse(localStorage.getItem("notes"));
 
-    if (localStorage.length >= 1) {
-      notes = JSON.parse(localStorage.getItem("notes"));
-      a = JSON.parse(localStorage.getItem("notes").length);
-      
-    } else{
-      console.log("saven naar storage mislukt");
-    }
-    notes[a] = this.title;
+    if(notes === null){
+      notes = [];
+    }else
+    notes.push(this.title);
     localStorage.setItem("notes", JSON.stringify(notes));
+    //console.log('is het gelukt?');
     console.log(localStorage);
   }
 
@@ -57,6 +53,7 @@ class Note {
   }
 
   removeFromStorage(){
+<<<<<<< HEAD
     this.style.display = "none";
     let removed = this.querySelector("a").previousSibling.innerHTML;
 
@@ -72,8 +69,20 @@ class Note {
     }
 
   
+=======
+    //console.log("functius Deletus");
+    
+>>>>>>> lab3
 
-    localStorage.setItem("notes",JSON.stringify(storedNotes));
+    let notes = JSON.parse(localStorage.getItem("notes"));
+    let child = this.children[0].innerHTML;
+    //console.log(child);
+    let index = notes.indexOf(child);
+    //console.log('dit is index '+index);
+    notes.splice(index,1);
+    localStorage.setItem("notes", JSON.stringify(notes));
+    console.log(localStorage);
+   
   }
 }
 
@@ -101,21 +110,11 @@ class App {
 
     let notesStored = JSON.parse(localStorage.getItem("notes"));
 
-    //array filteren op Null
-    let notesFiltered = notesStored.filter(array => array != null);
-
-    if (notesFiltered != null){
-      
-
-      notesFiltered.forEach( loadNote => {
-        let loadNew = new Note(loadNote);
-        loadNew.add(loadNew.element);
-      });
-    
-    }
-    else{
-    console.log("er ging iets mis met loaden")
-    }
+    for(let a = 0; a < notesStored.length; a++){
+      console.log('test' + notesStored);
+      let noteStorage = new Note(notesStored[a]);
+      noteStorage.add();
+    }    
     
   }
   
@@ -137,4 +136,4 @@ class App {
 }
 
 let app = new App();
-//localStorage.clear();
+console.log(localStorage);
