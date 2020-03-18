@@ -75,7 +75,8 @@ class Note {
     console.log(localStorage);
 
     let notes = JSON.parse(localStorage.getItem("notes"));
-    localStorage(notes);
+    let child = this.child.innerHTML;
+    console.log(child);
 
     /*
     this.style.display = "none";
