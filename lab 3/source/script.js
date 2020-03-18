@@ -149,7 +149,7 @@ class App {
     let text = document.querySelector("#txtAddNote").value;
     let note = new Note(text);
     note.add();
-    //note.saveToStorage();
+    note.saveToStorage();
     this.reset();
   }
 
