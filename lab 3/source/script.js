@@ -75,8 +75,10 @@ class Note {
     console.log(localStorage);
 
     let notes = JSON.parse(localStorage.getItem("notes"));
-    let child = this.child.innerHTML;
+    let child = this.children[0].innerHTML;
     console.log(child);
+    let index = notes.indexOf(child);
+    console.log('dit is index '+index);
 
     /*
     this.style.display = "none";
