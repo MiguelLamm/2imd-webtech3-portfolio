@@ -125,8 +125,8 @@ class App {
     // HINT🤩
     let text = document.querySelector("#txtAddNote").value;
     let note = new Note(text);
-    note.add();
-    note.saveToStorage();
+    //note.add();
+    //note.saveToStorage();
     this.reset();
   }
 
