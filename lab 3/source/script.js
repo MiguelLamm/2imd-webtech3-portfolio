@@ -40,7 +40,7 @@ class Note {
 
     if(notes === null){
       notes = [];
-    }
+    }else
     notes.push(this.title);
     localStorage.setItem("notes", JSON.stringify(notes));
     console.log('is het gelukt?');
@@ -73,6 +73,9 @@ class Note {
   removeFromStorage(){
     console.log("functius Deletus");
     console.log(localStorage);
+
+    let notes = JSON.parse(localStorage.getItem("notes"));
+    localStorage(notes);
 
     /*
     this.style.display = "none";
