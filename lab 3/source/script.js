@@ -35,7 +35,6 @@ class Note {
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
 
-    
     let notes = JSON.parse(localStorage.getItem("notes"));
 
     if(notes === null){
@@ -43,25 +42,8 @@ class Note {
     }else
     notes.push(this.title);
     localStorage.setItem("notes", JSON.stringify(notes));
-    console.log('is het gelukt?');
+    //console.log('is het gelukt?');
     console.log(localStorage);
-
-
-/*
-    let notes =[];
-    let a = 1;
-
-    if (localStorage.length >= 1) {
-      notes = JSON.parse(localStorage.getItem("notes"));
-      a = JSON.parse(localStorage.getItem("notes").length);
-      
-    } else{
-      console.log("saven naar storage mislukt");
-    }
-    notes[a] = this.title;
-    localStorage.setItem("notes", JSON.stringify(notes));
-    console.log(localStorage);
-    */
   }
 
   remove() {// HINT🤩 the meaning of 'this' was set by bind() in the createElement function
@@ -71,7 +53,7 @@ class Note {
   }
 
   removeFromStorage(){
-    console.log("functius Deletus");
+    //console.log("functius Deletus");
     
 
     let notes = JSON.parse(localStorage.getItem("notes"));
@@ -81,26 +63,8 @@ class Note {
     //console.log('dit is index '+index);
     notes.splice(index,1);
     localStorage.setItem("notes", JSON.stringify(notes));
-    //console.log(localStorage);
-    /*
-    this.style.display = "none";
-    let removed = this.querySelector("a").previousSibling.innerHTML;
-
-    let storedNotes = JSON.parse(localStorage.getItem("notes"));
-
-    storedNotes = storedNotes.filter(array => array != null);
-    //Nulls filteren
-
-    for(let i = storedNotes.length-1; i>=0; i--){ //hekken post
-      if (storedNotes[i] === removed){
-        storedNotes.splice(i,1);
-      }
-    }
-
-  
-
-    localStorage.setItem("notes",JSON.stringify(storedNotes));
-    */
+    console.log(localStorage);
+   
   }
 }
 
@@ -127,13 +91,13 @@ class App {
     // something like note.add() in a loop would be nice
 
     let notesStored = JSON.parse(localStorage.getItem("notes"));
-  /*
-      notesStored.forEach( loadNote => {
-        let loadNew = new Note(loadNote);
-        loadNew.add(loadNew.element);
-      });
-    
-    */
+
+    for(let a = 0; a < notesStored.length; a++){
+      console.log('test' + [a]);
+      let noteStorage = new Note(notesStored[a]);
+      noteStorage.add();
+    }    
+  
   
     
   }
@@ -156,4 +120,4 @@ class App {
 }
 
 let app = new App();
-//localStorage.clear();
+console.log(localStorage);
