@@ -93,7 +93,7 @@ class App {
     let notesStored = JSON.parse(localStorage.getItem("notes"));
 
     for(let a = 0; a < notesStored.length; a++){
-      console.log('test' + [a]);
+      console.log('test' + notesStored);
       let noteStorage = new Note(notesStored[a]);
       noteStorage.add();
     }    
