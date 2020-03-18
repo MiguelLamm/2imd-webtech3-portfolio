@@ -38,7 +38,9 @@ class Note {
     
     let notes = JSON.parse(localStorage.getItem("notes"));
 
-
+    if(notes === null){
+      notes = [];
+    }
     notes.push(this.title);
     localStorage.setItem("notes", JSON.stringify(notes));
     console.log('is het gelukt?');
@@ -70,6 +72,7 @@ class Note {
 
   removeFromStorage(){
     console.log("functius Deletus");
+    console.log(localStorage);
 
     /*
     this.style.display = "none";
@@ -116,18 +119,14 @@ class App {
     // something like note.add() in a loop would be nice
 
     let notesStored = JSON.parse(localStorage.getItem("notes"));
-
-    //array filteren op Null
-    
-      
-
-      notesFiltered.forEach( loadNote => {
+  /*
+      notesStored.forEach( loadNote => {
         let loadNew = new Note(loadNote);
         loadNew.add(loadNew.element);
       });
     
-    }
-    
+    */
+  
     
   }
   
