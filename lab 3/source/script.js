@@ -72,14 +72,16 @@ class Note {
 
   removeFromStorage(){
     console.log("functius Deletus");
-    console.log(localStorage);
+    
 
     let notes = JSON.parse(localStorage.getItem("notes"));
     let child = this.children[0].innerHTML;
     console.log(child);
     let index = notes.indexOf(child);
     console.log('dit is index '+index);
-
+    notes.splice(index,1);
+    localStorage.setItem("notes", JSON.stringify(notes));
+    console.log(localStorage);
     /*
     this.style.display = "none";
     let removed = this.querySelector("a").previousSibling.innerHTML;
