@@ -21,6 +21,8 @@ const getMessage = (req, res)=>{
 }
 
 const create =(req, res)=>{
+    let user = req.body.user;
+    let text = req.body.text;
     res.json({
         "status": "succes",
         "data": {
