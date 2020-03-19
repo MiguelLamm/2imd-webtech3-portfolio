@@ -17,7 +17,7 @@ let getAll = (req, res)=>{
     });
 }
 
-let getMessage = (req, res)=>{
+/*let getMessage = (req, res)=>{
     res.json({
         "status": "succes",
         "data": {
@@ -26,21 +26,29 @@ let getMessage = (req, res)=>{
             }
         }
     });
-}
+}*/
 
 let create =(req, res)=>{
-    let user = req.body.user;
-    let text = req.body.text;
-    res.json({
-        "status": "succes",
-        "data": {
-            "message": {
-                "text" : "messages POST"
+    let message = new Message();
+    message.user= "ikke";
+    message.message = "doen het goed!";
+message.save((err,doc)=>{
+    if(!err){
+        res.json({
+            "status": "succes",
+            "data": {
+                "message": {
+                    "text" : doc
+                }
             }
-        }
-    });
+        });
+    }
+});
+    //let user = req.body.user;
+    //let message = req.body.message;
+    
 }
 
 module.exports.getAll=getAll;
-module.exports.getMessage = getMessage;
+//module.exports.getMessage = getMessage;
 module.exports.create=create;
