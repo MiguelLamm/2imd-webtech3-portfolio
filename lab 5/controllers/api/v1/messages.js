@@ -1,3 +1,7 @@
+var mongoose = require('mongoose');
+  var Schema = mongoose.Schema;
+
+
 let getAll = (req, res)=>{
     res.json({
         "status": "succes",
