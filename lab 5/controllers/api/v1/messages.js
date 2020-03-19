@@ -1,4 +1,4 @@
-const getAll = (req, res)=>{
+let getAll = (req, res)=>{
     res.json({
         "status": "succes",
         "data": {
@@ -9,7 +9,7 @@ const getAll = (req, res)=>{
     });
 }
 
-const getMessage = (req, res)=>{
+let getMessage = (req, res)=>{
     res.json({
         "status": "succes",
         "data": {
@@ -20,7 +20,7 @@ const getMessage = (req, res)=>{
     });
 }
 
-const create =(req, res)=>{
+let create =(req, res)=>{
     let user = req.body.user;
     let text = req.body.text;
     res.json({
