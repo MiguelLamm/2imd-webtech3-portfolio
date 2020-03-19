@@ -30,9 +30,9 @@ let getAll = (req, res)=>{
 
 let create =(req, res)=>{
     let message = new Message();
-    message.user= "ikke";
-    message.message = "doen het goed!";
-message.save((err,doc)=>{
+    message.user= "mijn username";
+    message.message = "mijn bericht";
+    message.save((err,doc)=>{
     if(!err){
         res.json({
             "status": "succes",

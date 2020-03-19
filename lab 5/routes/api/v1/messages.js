@@ -8,7 +8,7 @@ router.get("/",messageController.getAll);
 
 //router.get("/messages/:id",messageController.getMessageId);
 
-router.post("/messages",messageController.create);
+router.post("/messages/",messageController.create);
 
 //router.put("/messages/:id",messageController.put);
 
