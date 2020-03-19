@@ -9,6 +9,17 @@ const getAll = (req, res)=>{
     });
 }
 
+const getMessage = (req, res)=>{
+    res.json({
+        "status": "succes",
+        "data": {
+            "messages": {
+                "text" : []
+            }
+        }
+    });
+}
+
 const create =(req, res)=>{
     res.json({
         "status": "succes",
@@ -21,4 +32,5 @@ const create =(req, res)=>{
 }
 
 module.exports.getAll=getAll;
+module.exports.getMessage = getMessage;
 module.exports.create=create;
