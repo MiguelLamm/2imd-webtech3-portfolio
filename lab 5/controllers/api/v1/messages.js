@@ -59,22 +59,36 @@ let create =(req, res)=>{
 }
 
 let put = (req, res)=>{
+    let id = req.params.id;
     res.json({
         "status": "succes",
         "data": {
             "messages": {
-                "text" : "put succes"
+                "text" : `put message met id: ${id} succes `
             }
         }
     });
 }
 
 let del = (req, res)=>{
+    let id = req.params.id; 
     res.json({
         "status": "succes",
         "data": {
             "messages": {
-                "text" : "del succes"
+                "text" : `del message met id: ${id} succes `
+            }
+        }
+    });
+}
+
+let getMessageUser = (req, res)=>{
+    let user = req.params.user; 
+    res.json({
+        "status": "succes",
+        "data": {
+            "messages": {
+                "text" : `del message met user: ${user} succes `
             }
         }
     });
@@ -86,3 +100,4 @@ module.exports.getMessageId = getMessageId;
 module.exports.create=create;
 module.exports.put=put;
 module.exports.del=del;
+module.exports.getMessageUser=getMessageUser;
