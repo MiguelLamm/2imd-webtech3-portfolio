@@ -42,7 +42,7 @@ let getMessageId = (req, res)=>{
 
 let create =(req, res)=>{
     let message = new Message();
-    message.user= "mijn username";
+    message.user= "ik";
     message.message = "mijn bericht";
     message.save((err,doc)=>{
     if(!err){
@@ -83,12 +83,13 @@ let del = (req, res)=>{
 }
 
 let getMessageUser = (req, res)=>{
-    let user = req.params.user; 
+    let username = req.params.username; 
+    console.log(username);
     res.json({
         "status": "succes",
         "data": {
             "messages": {
-                "text" : `del message met user: ${user} succes `
+                "text" : `get usermessage met user: ${username} succes `
             }
         }
     });
