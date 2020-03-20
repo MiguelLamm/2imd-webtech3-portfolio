@@ -29,11 +29,12 @@ let getMessage = (req, res)=>{
 }
 
 let getMessageId = (req, res)=>{
+    let id = req.params.id;
     res.json({
         "status": "succes",
         "data": {
             "messages": {
-                "text" : "get message id succes"
+                "text" : `get message met id: ${id} succes `
             }
         }
     });
