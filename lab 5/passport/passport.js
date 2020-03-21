@@ -1,5 +1,5 @@
 const passport = require('passport');
-const User = require('../models/user');
+const User = require('../models/userDetails');
 
 // CHANGE: USE "createStrategy" INSTEAD OF "authenticate"
 passport.use(User.createStrategy());
@@ -19,7 +19,9 @@ opts.secretOrKey = 'secret';
 opts.issuer = 'accounts.examplesoft.com';
 opts.audience = 'yoursite.net';
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
-    User.findOne({id: jwt_payload.sub}, function(err, user) {
+    User.findOne({
+        _id: jwt_payload.uid
+    }, function(err, user) {
         if (err) {
             return done(err, false);
         }
@@ -31,3 +33,5 @@ passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
         }
     });
 }));
+
+module.exports=passport;

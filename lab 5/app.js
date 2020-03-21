@@ -9,6 +9,8 @@ const usersRouter = require('./routes/users');
 
 const apiMessageRouter = require('./routes/api/v1/messages');
 
+const passport = require('./passport/passport');
+
 const mongoose = require('mongoose');
 mongoose.set ('useCreateIndex',true);
 mongoose.connect('mongodb://localhost:27017/message', {
@@ -31,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api/v1/messages', apiMessageRouter);
+app.use('/api/v1/messages',passport.authenticate('jwt', { session: false }), apiMessageRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
