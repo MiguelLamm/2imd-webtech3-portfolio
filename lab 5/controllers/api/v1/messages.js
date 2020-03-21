@@ -18,6 +18,17 @@ let getAll = (req, res)=>{
 }
 
 let getMessage = (req, res)=>{
+    let user = req.query.user;
+    if (user!=undefined){
+        res.json({
+            "status": "succes",
+        "data": {
+            "messages": {
+                "text" : `zoekopdracht naar user : ${user}`
+            }
+        }
+        });
+    } else{
     res.json({
         "status": "succes",
         "data": {
@@ -26,6 +37,7 @@ let getMessage = (req, res)=>{
             }
         }
     });
+}
 }
 
 let getMessageId = (req, res)=>{
@@ -82,7 +94,7 @@ let del = (req, res)=>{
     });
 }
 
-let getMessageUser = (req, res)=>{
+/*let getMessageUser = (req, res)=>{
     let username = req.params.username; 
     console.log(username);
     res.json({
@@ -93,7 +105,7 @@ let getMessageUser = (req, res)=>{
             }
         }
     });
-}
+}*/
 
 module.exports.getAll=getAll;
 module.exports.getMessage = getMessage;
@@ -101,4 +113,4 @@ module.exports.getMessageId = getMessageId;
 module.exports.create=create;
 module.exports.put=put;
 module.exports.del=del;
-module.exports.getMessageUser=getMessageUser;
+//module.exports.getMessageUser=getMessageUser;
