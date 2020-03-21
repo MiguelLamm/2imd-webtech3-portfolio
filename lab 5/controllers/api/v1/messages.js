@@ -7,28 +7,45 @@ const messageSchema = new Schema({
 const Message = mongoose.model('message', messageSchema);
 
 let getAll = (req, res)=>{
-    res.json({
-        "status": "succes",
-        "data": {
-            "messages": {
-                "text" : []
+    let user = req.query.user;
+    if(user == undefined){
+        res.json({
+            "status": "succes",
+            "data": {
+                "messages": {
+                    "text" : `getting ALL messages`
+                }
             }
+        });
+    }else{
+        res.json({
+            "status": "succes",
+            "data": {
+                "messages": {
+                    "text" : `getting messages met username ${user}`
+                }
+            }
+        });
         }
-    });
+    /*Message.find({
+        "user": "miguel"
+    },(err,docs) =>{
+        if(!err){
+            res.json({
+                "status": "succes",
+                "data": {
+                    "messages": {
+                        "text" : docs
+                    }
+                }
+            });
+        }
+    })*/;
+
+    
 }
 
 let getMessage = (req, res)=>{
-    let user = req.query.user;
-    if (user!=undefined){
-        res.json({
-            "status": "succes",
-        "data": {
-            "messages": {
-                "text" : `zoekopdracht naar user : ${user}`
-            }
-        }
-        });
-    } else{
     res.json({
         "status": "succes",
         "data": {
@@ -38,7 +55,7 @@ let getMessage = (req, res)=>{
         }
     });
 }
-}
+
 
 let getMessageId = (req, res)=>{
     let id = req.params.id;
@@ -54,8 +71,8 @@ let getMessageId = (req, res)=>{
 
 let create =(req, res)=>{
     let message = new Message();
-    message.user= "ik";
-    message.message = "mijn bericht";
+    message.user= req.body.user;
+    message.message = req.body.text;
     message.save((err,doc)=>{
     if(!err){
         res.json({
