@@ -72,7 +72,7 @@ let create =(req, res,next)=>{
 
 let put = (req, res)=>{
     let id = req.params.id;
-    let user
+    
     res.json({
         "status": "succes",
         "data": {
