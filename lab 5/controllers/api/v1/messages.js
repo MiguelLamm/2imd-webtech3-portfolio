@@ -1,10 +1,5 @@
-const mongoose = require('mongoose');
-  const Schema = mongoose.Schema;
-const messageSchema = new Schema({
-    message : String,
-    user: String,
-})
-const Message = mongoose.model('message', messageSchema);
+const Message = require('../../../models/message');
+
 
 let getAll = (req, res)=>{
     let user = req.query.user;
@@ -50,7 +45,7 @@ let getMessageId = (req, res)=>{
     });
 }
 
-let create =(req, res)=>{
+let create =(req, res,next)=>{
     let message = new Message();
     message.user= req.body.user;
     message.message = req.body.text;
@@ -65,11 +60,19 @@ let create =(req, res)=>{
             }
         });
     }
+    if(err){
+        res.json({
+            "status": "failed",
+            "message": "kan message niet saven"
+        });
+    }
 });
+
 }
 
 let put = (req, res)=>{
     let id = req.params.id;
+    let user
     res.json({
         "status": "succes",
         "data": {
