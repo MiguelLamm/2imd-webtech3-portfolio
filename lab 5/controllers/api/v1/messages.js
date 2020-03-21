@@ -8,7 +8,7 @@ const Message = mongoose.model('message', messageSchema);
 
 let getAll = (req, res)=>{
     let user = req.query.user;
-    if(user == undefined){
+    if(req.query.user ==null){
         res.json({
             "status": "succes",
             "data": {
@@ -18,44 +18,25 @@ let getAll = (req, res)=>{
             }
         });
     }else{
-        res.json({
-            "status": "succes",
-            "data": {
-                "messages": {
-                    "text" : `getting messages met username ${user}`
-                }
-            }
-        });
-        }
-    /*Message.find({
-        "user": "miguel"
-    },(err,docs) =>{
-        if(!err){
-            res.json({
-                "status": "succes",
-                "data": {
-                    "messages": {
-                        "text" : docs
+        Message.find({
+            "user": `${user}`
+        },(err,docs) =>{
+            if(!err){
+                res.json({
+                    "status": "succes",
+                    "data": {
+                        "messages": {
+                            "text" : docs
+                        }
                     }
-                }
-            });
+                });
+            }
+        })
         }
-    })*/;
+    /**/;
 
     
 }
-
-let getMessage = (req, res)=>{
-    res.json({
-        "status": "succes",
-        "data": {
-            "messages": {
-                "text" : "get message succes"
-            }
-        }
-    });
-}
-
 
 let getMessageId = (req, res)=>{
     let id = req.params.id;
@@ -110,24 +91,8 @@ let del = (req, res)=>{
         }
     });
 }
-
-/*let getMessageUser = (req, res)=>{
-    let username = req.params.username; 
-    console.log(username);
-    res.json({
-        "status": "succes",
-        "data": {
-            "messages": {
-                "text" : `get usermessage met user: ${username} succes `
-            }
-        }
-    });
-}*/
-
 module.exports.getAll=getAll;
-module.exports.getMessage = getMessage;
 module.exports.getMessageId = getMessageId;
 module.exports.create=create;
 module.exports.put=put;
 module.exports.del=del;
-//module.exports.getMessageUser=getMessageUser;
