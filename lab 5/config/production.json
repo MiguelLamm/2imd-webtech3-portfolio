@@ -1,0 +1,6 @@
+{
+    "Database":{
+        "conn": "mongodb://localhost:27017/message"
+    },
+    "jwt":"secret"
+}
