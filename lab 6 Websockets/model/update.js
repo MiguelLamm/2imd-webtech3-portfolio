@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const updateSchema = new Schema({
-    message : String,
-    user: String
+    belgium : Number,
+    germany : Number,
+    france : Number,
+    uk : Number
 })
 const update = mongoose.model('update',updateSchema);
 module.exports = update;
