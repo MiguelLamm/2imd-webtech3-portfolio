@@ -1,16 +1,18 @@
 const update = require('../model/update');
 
-let getAll = (req, res)=>{
-    
-        res.json({
-            "status": "succes",
-            "data": {
-                "messages": {
-                    "text" : `getting ALL data`
-                }
-            }
-        });
+let getAll = (req, res , next)=>{
+    update.find({},( err, docs) => {
+        if (!err){
+            res.json({
+                "status": "succes",
+                "country" : docs
+                
+            })
+        }
     }
+
+    )}
+
 
 let updates = (req, res, next)=> {
     res.json({
