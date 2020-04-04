@@ -1,15 +1,23 @@
-const getAll = (req,res, next) => {
-    update.find({},(err,docs)=>{
-        if(!err){
-            res.json({
-                "status": "succes",
-                "landen": "belgie, frankrijk, etc"
-            })
-        }else {
-            res.json({
-                "status": "error",
-                "message" :"kan docs niet vinden"
-            })
-        }
+const update = require('../model/update');
+
+let getAll = (req, res)=>{
+    
+        res.json({
+            "status": "succes",
+            "data": {
+                "messages": {
+                    "text" : `getting ALL data`
+                }
+            }
+        });
+    }
+
+let updates = (req, res, next)=> {
+    res.json({
+        "status": "succes",
+        "updated": "belgie, frankrijk, etc"
     })
 }
+
+module.exports.getAll = getAll;
+module.exports.updates = updates;
