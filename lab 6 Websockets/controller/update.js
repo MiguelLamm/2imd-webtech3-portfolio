@@ -8,6 +8,11 @@ let getAll = (req, res , next)=>{
                 "country" : docs
                 
             })
+        } else {
+            res.json({
+                "status": "failed",
+                "message": "gigantische fout"
+            })
         }
     }
 
@@ -15,9 +20,16 @@ let getAll = (req, res , next)=>{
 
 
 let updates = (req, res, next)=> {
+    //let land = req.params.land;
+    //let aantal = req.params.aantal;
+    let land = req.body.land;
+    let aantal = req.body.aantal;
+    console.log(aantal);
+    console.log(land);
     res.json({
-        "status": "succes",
-        "updated": "belgie, frankrijk, etc"
+        "land": land,
+        "aantal" : aantal
+        
     })
 }
 
