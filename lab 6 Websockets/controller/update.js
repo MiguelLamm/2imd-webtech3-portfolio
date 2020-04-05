@@ -1,11 +1,11 @@
 const update = require('../model/update');
 
 let getAll = (req, res , next)=>{
-    update.find({},( err, docs) => {
+    update.find({},( err, data) => {
         if (!err){
             res.json({
                 "status": "succes",
-                "country" : docs
+                "country" : data
                 
             })
         } else {
@@ -34,11 +34,50 @@ let updates = (req, res)=> {
         })
     }else{
         if(land === "belgium"){
-            update.findOneAndUpdate({},{"belgium": aantal}, (err,docs) => {
+            update.findOneAndUpdate({},{"belgium": aantal}, (err,data) => {
+                console.log(data);
                 if(!err){
                 res.json({
                     "status": "succes",
-                    "land " : docs
+                    "land": "belgium",
+                    "respons " : data
+                    
+                })
+            }
+            })
+        }
+        if(land === "france"){
+            update.findOneAndUpdate({},{"france": aantal}, (err,data) => {
+                if(!err){
+                res.json({
+                    "status": "succes",
+                    "land": landz,
+                    "respons " : data
+                    
+                })
+            }
+            })
+        }
+        if(land === "germany"){
+            update.findOneAndUpdate({},{"germany": aantal}, (err,data) => {
+                if(!err){
+                res.json({
+                    "status": "succes",
+                    "land": "germany",
+                    "respons " : data
+                    
+                })
+            }
+            })
+        }
+        if(land === "uk"){
+            update.findOneAndUpdate({},{"uk": aantal}, (err,data) => {
+                console.log(data);
+                if(!err){
+                res.json({
+                    "status": "succes",
+                    "land": "uk",
+                    "respons " : data
                     
                 })
             }

@@ -3,6 +3,6 @@ const router = express.Router();
 const updateController = require('../../controller/update');
 
 router.get("/", updateController.getAll);
-router.put("/update", updateController.updates);
+router.put("/update/:land", updateController.updates);
 
 module.exports = router;
