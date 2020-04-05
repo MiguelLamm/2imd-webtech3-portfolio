@@ -11,7 +11,7 @@ let getAll = (req, res , next)=>{
         } else {
             res.json({
                 "status": "failed",
-                "message": "gigantische fout"
+                "message": "kan gegevens niet opvragen"
             })
         }
     }
@@ -19,18 +19,34 @@ let getAll = (req, res , next)=>{
     )}
 
 
-let updates = (req, res, next)=> {
+let updates = (req, res)=> {
     //let land = req.params.land;
     //let aantal = req.params.aantal;
     let land = req.body.land;
     let aantal = req.body.aantal;
     console.log(aantal);
     console.log(land);
-    res.json({
-        "land": land,
-        "aantal" : aantal
-        
-    })
+
+    if(land === undefined){
+        res.json({
+            "status": "error",
+            "message": "land is undefined"
+        })
+    }else{
+        if(land === "belgium"){
+            update.findOneAndUpdate({},{"belgium": aantal}, (err,docs) => {
+                if(!err){
+                res.json({
+                    "status": "succes",
+                    "land " : docs
+                    
+                })
+            }
+            })
+        }
+    }
+
+    
 }
 
 module.exports.getAll = getAll;

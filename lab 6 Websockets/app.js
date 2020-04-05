@@ -10,6 +10,7 @@ mongoose.connect('mongodb://localhost:27017/lab6', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
+mongoose.set('useFindAndModify', false);
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
