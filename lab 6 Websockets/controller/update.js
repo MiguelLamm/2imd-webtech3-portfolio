@@ -20,9 +20,9 @@ let getAll = (req, res , next)=>{
 
 
 let updates = (req, res)=> {
-    //let land = req.params.land;
+    let land = req.params.land;
     //let aantal = req.params.aantal;
-    let land = req.body.land;
+    //let land = req.body.land;
     let aantal = req.body.aantal;
     console.log(aantal);
     console.log(land);
