@@ -32,6 +32,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use(cors());
+app.all('/', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000/update");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next()
+});
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/update',updateRouter);
