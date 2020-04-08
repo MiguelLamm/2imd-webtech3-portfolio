@@ -1,3 +1,4 @@
+const mongoose = require ('mongoose');
 const update = require('../model/update');
 
 let getAll = (req, res , next)=>{
