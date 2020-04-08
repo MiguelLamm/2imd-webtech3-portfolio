@@ -5,7 +5,7 @@ let getAll = (req, res , next)=>{
         if (!err){
             res.json({
                 "status": "succes",
-                "country" : data
+                "landen" : data
                 
             })
         } else {
