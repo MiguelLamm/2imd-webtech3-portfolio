@@ -51,7 +51,7 @@ let updates = (req, res)=> {
                 if(!err){
                 res.json({
                     "status": "succes",
-                    "land": landz,
+                    "land": land,
                     "respons " : data
                     
                 })
