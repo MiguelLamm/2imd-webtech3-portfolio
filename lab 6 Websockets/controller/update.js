@@ -1,12 +1,11 @@
-const mongoose = require ('mongoose');
 const update = require('../model/update');
 
 let getAll = (req, res , next)=>{
-    update.find({},( err, data) => {
+    update.find({},( err, docs) => {
         if (!err){
             res.json({
                 "status": "succes",
-                "landen" : data
+                "landen" : docs
                 
             })
         } else {
@@ -19,14 +18,39 @@ let getAll = (req, res , next)=>{
 
     )}
 
+    let create =(req, res,next)=>{
+        let land = new update();
+        land.land= req.body.land;
+        land.aantal = req.body.aantal;
+        land.save((err,doc)=>{
+        if(!err){
+            res.json({
+                "status": "succes",
+                "data": {
+                    "update": {
+                        "text" : doc
+                    }
+                }
+            });
+        }
+        if(err){
+            res.json({
+                "status": "failed",
+                "update": "kan update niet saven"
+            });
+        }
+    });
+    
+    }
+
 
 let updates = (req, res)=> {
     let land = req.params.land;
     //let aantal = req.params.aantal;
     //let land = req.body.land;
     let aantal = req.body.aantal;
-    console.log(aantal);
-    console.log(land);
+    //console.log(aantal);
+    //console.log(land);
 
     if(land === undefined){
         res.json({
@@ -35,50 +59,50 @@ let updates = (req, res)=> {
         })
     }else{
         if(land === "belgium"){
-            update.findOneAndUpdate({},{"belgium": aantal}, (err,data) => {
-                console.log(data);
+            update.findOneAndUpdate({},{"belgium": aantal}, (err,docs) => {
+                console.log(docs);
                 if(!err){
                 res.json({
                     "status": "succes",
                     "land": "belgium",
-                    "respons " : data
+                    "respons " : docs
                     
                 })
             }
             })
         }
         if(land === "france"){
-            update.findOneAndUpdate({},{"france": aantal}, (err,data) => {
+            update.findOneAndUpdate({},{"france": aantal}, (err,docs) => {
                 if(!err){
                 res.json({
                     "status": "succes",
                     "land": land,
-                    "respons " : data
+                    "respons " : docs
                     
                 })
             }
             })
         }
         if(land === "germany"){
-            update.findOneAndUpdate({},{"germany": aantal}, (err,data) => {
+            update.findOneAndUpdate({},{"germany": aantal}, (err,docs) => {
                 if(!err){
                 res.json({
                     "status": "succes",
                     "land": "germany",
-                    "respons " : data
+                    "respons " : docs
                     
                 })
             }
             })
         }
         if(land === "uk"){
-            update.findOneAndUpdate({},{"uk": aantal}, (err,data) => {
-                console.log(data);
+            update.findOneAndUpdate({},{"uk": aantal}, (err,docs) => {
+                console.log(docs);
                 if(!err){
                 res.json({
                     "status": "succes",
                     "land": "uk",
-                    "respons " : data
+                    "respons " : docs
                     
                 })
             }
@@ -91,3 +115,4 @@ let updates = (req, res)=> {
 
 module.exports.getAll = getAll;
 module.exports.updates = updates;
+module.exports.create = create;
