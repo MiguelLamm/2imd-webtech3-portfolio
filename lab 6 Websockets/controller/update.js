@@ -49,9 +49,9 @@ let updates = (req, res)=> {
     //let aantal = req.params.aantal;
     //let land = req.body.land;
     let aantal = req.body.aantal;
-    //console.log(aantal);
-    //console.log(land);
-
+console.log("heb het aantal: " +aantal);
+console.log("in dit land: "+land);
+    
     if(land === undefined){
         res.json({
             "status": "error",
@@ -69,6 +69,7 @@ let updates = (req, res)=> {
                     
                 })
             }
+            
             })
         }
         if(land === "france"){
