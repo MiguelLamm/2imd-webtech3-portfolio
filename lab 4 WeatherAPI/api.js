@@ -16,6 +16,7 @@ class App{
         this.lng = result.coords.longitude;
         console.log(this.lat, this.lng);
         this.getWeather();
+        this.getSuper();
     }
 
    getWeather(){
@@ -32,7 +33,28 @@ class App{
           // console.log(data.data[0].app_temp);
            
            document.querySelector('.temp').innerHTML= data.data[0].app_temp + "°C";
+           document.querySelector('.sunrise').innerHTML= data.data[0].sunrise;
+           document.querySelector('.sundown').innerHTML= data.data[0].sunset;
+           document.querySelector('.location').innerHTML= data.data[0].city_name;
+
+         console.log(data);
        })
+   }
+
+   getSuper(){
+    const cors = "https://cors-anywhere.herokuapp.com/";
+       let r = Math.round(Math.random()*731);
+       console.log(r);
+       let url =`${cors}https://superheroapi.com/api/1952023004942356/${r}/image`;
+        
+       fetch(url).then(response => {
+        return response.json();
+    }).then(data => {
+
+console.log(data);
+document.querySelector('.img').src= data.url;
+document.querySelector('.title').innerHTML= data.name;
+    })
    }
 }
 let app = new App();
