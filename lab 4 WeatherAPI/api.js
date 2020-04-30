@@ -26,7 +26,12 @@ class App{
        fetch(url).then(response => {
            return response.json();
        }).then(data => {
-           console.log(data);
+
+
+        let temps = localStorage.setItem("temps", (data.data[0].app_temp));
+          // console.log(data.data[0].app_temp);
+           
+           document.querySelector('.temp').innerHTML= data.data[0].app_temp + "°C";
        })
    }
 }
