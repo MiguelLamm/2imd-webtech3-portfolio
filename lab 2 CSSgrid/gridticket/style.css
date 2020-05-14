@@ -20,7 +20,7 @@ body{
 
 .wrapper{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 200px 1fr;
     grid-template-rows: 50px 44px 1fr 38px 38px;
     height: 574px;
     width: 300px;
